@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <link rel="icon" type="image/ico" href="res/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+    <script language="javascript" type="text/javascript" src="lib/js-yaml.min.js"></script>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0"/>
+    <meta name="author"      content="krissemicolon"/>
+    <meta name="description" content="Every language supported by github"/>
+    <meta name="keywords"    content="github, languages, programming, linguist, yaml, parser"/>
+
+    <title>everylang</title>
+</head>
+<html lang="en">
+<body>
+
+<div class="title">
+    <h1>everylang - every language supported by github</a></h1>
+</div>
+<div id="langs"></div>
+<script language="javascript" type="text/javascript">
+const URI = "https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml";
+
+fetch(URI)
+.then(res => res.text())
+.then(data => obj = data)
+.then(() => {
+    const doc = jsyaml.load(obj);
+
+    for(lang in doc) {
+        var p_lang = document.createElement("p");
+        p_lang.innerHTML = lang;
+        document.getElementById("langs").appendChild(p_lang);
+    }
+});
+</script>
+
+<h1 class="title">
+    <a rel="noopener" target="_blank" href="https://github.com/krissemicolon">creator</a>
+    ·
+    <a rel="noopener" target="_blank" href="https://github.com/everylang/everylang.github.io">repository</a>
+</h1>
+
+</body>
+</html>
